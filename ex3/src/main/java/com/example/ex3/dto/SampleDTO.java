@@ -2,7 +2,7 @@ package com.example.ex3.dto;
 
 
 //SampleController에서 DTO 클래스를 통해 데이터 전송.
-
+//DTO = data transfer object  데이터 전송용 객체
 import lombok.Builder;
 import lombok.Data;
 
