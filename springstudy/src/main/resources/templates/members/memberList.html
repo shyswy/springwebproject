@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+            </tr>
+            </thead>                          <!--${~~~} 는 model안의 값을 꺼내는것! addAttribute로 추가한 members 얻기-->
+            <tbody>                         <!-- (thymeleaf문법)  th:each >> loop 도는거  -->
+            <tr th:each="member : ${members}">   <!--model에서 객체 꺼내 담기-->
+                <td th:text="${member.id}"></td>      <!-- 해당 객체에서 현재 순번의 id, name 출력 -->
+                <td th:text="${member.name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>

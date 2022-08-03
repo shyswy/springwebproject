@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    .target { background-color: red;}
+
+</style>
+
+
+
+<!--SampleController에서 Model model 파라미터 받아서 넘어옴-->
+<ul>  <!--항목 나열   ul =unordered list (순서 상관x) ol = ordered list dl=definition list (사전처럼 용어 설명)-->
+    <!--thymeleaf에서    th:each = "변수: ${목록} "   로 반복문 사용-->
+    <!--파라미터(Model model) 을 list 에 전달 받는다.-->
+    <!--th:if로 제어문 처리. sno값이 5의배수인 객체만 출력-->
+    <!--<li th:each="dto,state : ${list}"> -->
+    <!--dto의 sno 값이 5의 배수라면 sno 값 출력-->
+
+
+ <!--span 은 인라인 요소들을 하나로 묶을 떄 이용 ( 같은 속성값 등을 사용하는 그룹으로) -->
+        <span th:if="${dto.sno%5==0}" th:text="${'-------------'+dto.sno}"></span>
+        <!--dto의 sno 값이 5의배수가 "아니라면" first 값 출력-->
+        <span th:unless="${dto.sno %5==0}" th:text="${dto.first}"></span>
+
+
+
+
+
+        <!-- 위 방식 귀찮으면 삼항 연산자 a? b: c   a가 참이면 b, 거짓이면 c a?b 로 if(a) b   처럼 사용도 가능
+         <li th:each="dto,state : ${list}" th:text=${dto.sno %5==0} ? ${dto.sno}: ${dto.first}">
+         위 같은 삼항 연산자로 위의   if, unless 문 대체 가능!
+
+         위에서
+         < th:block th:each="dto : ${list}" >
+          < th:text=${dto.sno %5==0} ? ${dto.sno}: ${dto.first}">
+          </th:block>  이것과 같이 th:block 을통해 감싸서 사용시, 실제 화면에서 html로 처리 되지 않기에 루프 등을
+          별도로 처리하는 용도로 자주 사용함
+        -->
+
+    <!--  [[${state.index}]]---  [[${dto}]]--> <!--  [[항목]] 는 인라인 표현식. 별도의 태그 속성으로 지정하지 않고 사용할 떄 유용     -->
+        <!--state는 반복문에서 사용 가능한 상태 객체  위의 경우(index) 각 객체를 0번부터 순번 매겨준다. (count 는 1부터) -->
+
+    </li>   <!--li는 ol,ul에서 항목을 나열할 때 이용. 이를 통해 순번, 인덱스 번호, 홀수/짝수 등을 지정 가능. -->
+
+
+
+
+
+    <!-- if(sno가 5의배수) 빨간색 배경     모두 출력    >> 모두 출력하되, 5의 배수는 빨간색 배경으로-->
+
+    <!--만약 sno값이 5의 배수면 배경색을 빨간색으로-->
+    <!--
+    <li th:each="dto,state: ${list}" th:class="${dto.sno%5==0}?'target'"  />
+        th:text="${dto}"></li> -->
+
+</ul>
+
+</body>
+</html>
