@@ -68,6 +68,12 @@ public class SampleController {
     @GetMapping("/ex3")
     public void ex3(){
         log.info("ex3");
+    } //로그 를 남긴다. ( ex3 라는 걸 로그에 남겨줌)
+
+
+    @GetMapping({"/exLayout1","/exLayout2","/useTemplate","/exSidebar"}) //여기서 명시한 template의 html 파일로 자동 매핑한다!
+    public void exLayout1(){
+        log.info("exLayout..."); //매핑할때 해당 메소드 수행해서 로그 출력
     }
 
 }

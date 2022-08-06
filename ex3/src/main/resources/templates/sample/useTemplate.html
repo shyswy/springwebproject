@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--아래에서 파라미터로 전달할 (콘텐츠,내용) 타겟 정의하고 layout1에게 넘겨서 해당 레이아웃 사용!-->
+<!--static에 공용 템플릿 복사해놓고 사용하자! ( starbootstrap~~~ 참고)-->
+<th:block th:replace="~{/layout/layout1 :: setContent(~{this::content})} "> <!---->
+    <th:block th:fragment="content">
+        <h1>layout1에게 전달할 Content 내용</h1>
+    </th:block>
+</th:block>
+
+
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+                                                <!--this는 현재 페이지 의미(생략가능) ulFirst는 CSS의 아이디 선택자
+
+
+  fragment3에 ulFIrst,Second 태그를 전달한다. 타임리프의 레이아웃의 파라미터 전달 방식                                           -->
+
+<th:block th:replace="~{/fragments/fragment3:: target(~{this:: #ulFirst} , ~{this::#ulSecond} )}">
+    <ul id="ulFirst">
+        <li>AAA</li>
+        <li>BBB</li>
+        <li>CCC</li>
+    </ul>
+    <ul id="ulSecond">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+</th:block>

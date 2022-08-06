@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<!--파라미터를 사용해서 타임리프 레이아웃 처리-->
+<!--실제 타겟 사용은 exLayout2에서 진행 -->
+<!--exLayout2 에서 태그 ( AAA~~~) 를  파라미터로 받아 적용 후 출력. -->
+
+<body>
+<div th:fragment="target(first, second)">
+  <style>
+    .c1 {
+      background-color: red;
+    }
+    .c2 {
+      background-color: blue;
+    }
+  </style>
+  <div class="c1">
+    <th:block th:replace = "${first}"></th:block>
+  </div>
+  <div class="c2">
+    <th:block th:replace = "${second}"></th:block>
+  </div>
+</div>
+</body>
+</html>
