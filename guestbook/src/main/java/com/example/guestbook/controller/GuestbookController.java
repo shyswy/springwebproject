@@ -54,6 +54,7 @@ public class GuestbookController {
          }
 
     @GetMapping({"/read", "/modify"})// 조회, 수정&삭제 페이지 둘다 동일한 진입 방식.
+    //수정& 삭제페이지 화면 기능
     public void read(long gno, @ModelAttribute("requestDTO") PageRequestDTO requestDTO , Model model){
         // 조회 페이지 구현시, 새로운 창을 띄우는 방식을 쓰는 경우도 존재.
         // 하지만 이 경우는 다시 목록 페이지로 돌아오게 작성. 따라서 PageRequestDTO 파라미터에 목록 페이지 정보를 받아 놓는다.
@@ -67,7 +68,9 @@ public class GuestbookController {
 
     @PostMapping("/remove")
 
-    public String remove(Long gno, RedirectAttributes redirectAttributes){
+    //
+
+    public String remove(Long gno, RedirectAttributes redirectAttributes){ //삭제 처리
         //삭제 방식은 get으로 수정 페이지에 들어가 "삭제" 버튼을 클릭하는 방식.
 
         log.info("gno: "+gno);
@@ -79,7 +82,7 @@ public class GuestbookController {
 
     }
 
-    @PostMapping("/modify")   //modify 의 post 방식 처리
+    @PostMapping("/modify")   //modify 의 post 방식 처리   수정 처리
 
     //기존 페이지에서 수정 완료 후에는, 조회 페이지로 리다이렉트.
     // 이때 기존 페이지 정보를 유지하여  조회페이지에서 다시 목록페이지로 이동할 수 있게한다.
