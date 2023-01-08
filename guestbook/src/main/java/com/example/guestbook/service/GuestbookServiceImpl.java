@@ -80,7 +80,7 @@ public class GuestbookServiceImpl implements GuestbookService {
     @Override
     public void remove(Long gno){
         repository.deleteById(gno);
-    }
+    } //자신의 PK로인한 삭제는 기본적으로 정의되어있다.
 
     @Override
     public void modify(GuestbookDTO dto){
@@ -89,14 +89,9 @@ public class GuestbookServiceImpl implements GuestbookService {
         Optional<Guestbook> result = repository.findById(dto.getGno()); //없으면 null 이므로 Optional 처리
         if(result.isPresent()){
             Guestbook entity=result.get();
-
             entity.changeTitle(dto.getTitle());
-
-
             entity.changeContent(dto.getContent());
-
             repository.save(entity);
-
         }
     }
     //원래 따로 BooleanBuilder 클래스 작성하지만 편의 상 이곳에  메소드로 정의
